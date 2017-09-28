@@ -4,12 +4,12 @@ using System;
 
 namespace TradingBot.Models
 {
-    public class SalesInfoFactory
+    public class OrderFactory
     {
 
-       public  static Order ParseFrom(LuisResult result)
+       public  static OrderForm ParseFrom(LuisResult result)
         {
-            Order salesInfo = new Order();
+            OrderForm salesInfo = new OrderForm();
             salesInfo.Quantity = TryParseDouble(result, "sharesQuantity");
             salesInfo.Price = TryParseDouble(result, "Price");
             salesInfo.Secuirty = TryParseString(result, "Security");

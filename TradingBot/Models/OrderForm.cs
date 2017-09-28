@@ -14,7 +14,7 @@ namespace TradingBot.Models
 
 
     [Serializable]
-    public class Order
+    public class OrderForm
     {
         public double? Quantity { get; set; }
         public string Secuirty { get; set; }

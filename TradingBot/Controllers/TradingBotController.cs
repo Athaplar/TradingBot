@@ -27,7 +27,7 @@ namespace TradingBot.Controllers
                  */
                 // await Conversation.SendAsync(message, () => new GreetingDialog());
                 //await Conversation.SendAsync(message, () => new LuisDIalog());
-                await Conversation.SendAsync(message, () => new RootLuisDialog());
+                await Conversation.SendAsync(message, () => new OrderFormDialog());
             }
             else
             {

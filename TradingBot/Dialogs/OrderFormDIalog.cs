@@ -14,7 +14,7 @@
 
     [LuisModel("2bef91d7-4ca1-473e-97d2-8f5802c683fa", "8160dd0c31704b46abff4be01d58b951")]
      [Serializable]
-    public class RootLuisDialog : LuisDialog<object>
+    public class OrderFormDialog : LuisDialog<object>
     {
       
         [LuisIntent("")]
@@ -30,10 +30,10 @@
 
 
         [LuisIntent("SalesInfo")]
-        public async Task Search(IDialogContext context, IAwaitable<IMessageActivity> activity, LuisResult result)
+        public async Task OrderFormParsing(IDialogContext context, IAwaitable<IMessageActivity> activity, LuisResult result)
         {
 
-            var salesInfo = SalesInfoFactory.ParseFrom(result);
+            var salesInfo = OrderFactory.ParseFrom(result);
             await context.PostAsync($" Following is the form filled {salesInfo}");
           
             context.Wait(this.MessageReceived);
