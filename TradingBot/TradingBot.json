@@ -1,0 +1,181 @@
+{
+  "luis_schema_version": "2.1.0",
+  "versionId": "0.1",
+  "name": "CitiTraderApp",
+  "desc": "",
+  "culture": "en-us",
+  "intents": [
+    {
+      "name": "Greeting"
+    },
+    {
+      "name": "None"
+    },
+    {
+      "name": "SalesInfo"
+    }
+  ],
+  "entities": [
+    {
+      "name": "Buy"
+    },
+    {
+      "name": "Greeting"
+    },
+    {
+      "name": "Price"
+    },
+    {
+      "name": "Security"
+    },
+    {
+      "name": "Sell"
+    },
+    {
+      "name": "sharesQuantity"
+    }
+  ],
+  "composites": [],
+  "closedLists": [],
+  "bing_entities": [
+    "money",
+    "number"
+  ],
+  "actions": [],
+  "model_features": [],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "hi there",
+      "intent": "Greeting",
+      "entities": [
+        {
+          "entity": "Greeting",
+          "startPos": 0,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "hi",
+      "intent": "Greeting",
+      "entities": [
+        {
+          "entity": "Greeting",
+          "startPos": 0,
+          "endPos": 1
+        }
+      ]
+    },
+    {
+      "text": "howdy",
+      "intent": "Greeting",
+      "entities": [
+        {
+          "entity": "Greeting",
+          "startPos": 0,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "buy 100 shares of ibm",
+      "intent": "SalesInfo",
+      "entities": [
+        {
+          "entity": "sharesQuantity",
+          "startPos": 4,
+          "endPos": 6
+        },
+        {
+          "entity": "Security",
+          "startPos": 18,
+          "endPos": 20
+        },
+        {
+          "entity": "Buy",
+          "startPos": 0,
+          "endPos": 2
+        }
+      ]
+    },
+    {
+      "text": "purchase 100 shares of intel for 1000",
+      "intent": "SalesInfo",
+      "entities": [
+        {
+          "entity": "sharesQuantity",
+          "startPos": 9,
+          "endPos": 11
+        },
+        {
+          "entity": "Security",
+          "startPos": 23,
+          "endPos": 27
+        },
+        {
+          "entity": "Buy",
+          "startPos": 0,
+          "endPos": 7
+        },
+        {
+          "entity": "Price",
+          "startPos": 33,
+          "endPos": 36
+        }
+      ]
+    },
+    {
+      "text": "sell 100 ibm for 100",
+      "intent": "SalesInfo",
+      "entities": [
+        {
+          "entity": "Sell",
+          "startPos": 0,
+          "endPos": 3
+        },
+        {
+          "entity": "sharesQuantity",
+          "startPos": 5,
+          "endPos": 7
+        },
+        {
+          "entity": "Security",
+          "startPos": 9,
+          "endPos": 11
+        },
+        {
+          "entity": "Price",
+          "startPos": 17,
+          "endPos": 19
+        }
+      ]
+    },
+    {
+      "text": "buy 100 ibm for 200",
+      "intent": "SalesInfo",
+      "entities": [
+        {
+          "entity": "sharesQuantity",
+          "startPos": 4,
+          "endPos": 6
+        },
+        {
+          "entity": "Security",
+          "startPos": 8,
+          "endPos": 10
+        },
+        {
+          "entity": "Buy",
+          "startPos": 0,
+          "endPos": 2
+        },
+        {
+          "entity": "Price",
+          "startPos": 16,
+          "endPos": 18
+        }
+      ]
+    }
+  ]
+}
