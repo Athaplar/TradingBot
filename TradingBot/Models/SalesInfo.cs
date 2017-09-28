@@ -4,17 +4,24 @@ using System;
 namespace TradingBot.Models
 {
 
-   public enum SalesAction{
-        buy,sell
+    public enum SalesAction {
+        buy, sell
     }
 
+    public enum PriceType{
+        Normal, Limit, GTC
+        }
+
+
     [Serializable]
-    public class SalesInfo
+    public class Order
     {
         public double? Quantity { get; set; }
         public string Secuirty { get; set; }
         public SalesAction? Action { get; set; }
         public double? Price { get; set; }
+        public PriceType? PriceType { get; set; }
+
 
         public override bool Equals(object obj)
         {

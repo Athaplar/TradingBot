@@ -7,18 +7,14 @@ namespace TradingBot.Models
     public class SalesInfoFactory
     {
 
-       public  static SalesInfo ParseFrom(LuisResult result)
+       public  static Order ParseFrom(LuisResult result)
         {
-            SalesInfo salesInfo = new SalesInfo();
+            Order salesInfo = new Order();
             salesInfo.Quantity = TryParseDouble(result, "sharesQuantity");
             salesInfo.Price = TryParseDouble(result, "Price");
             salesInfo.Secuirty = TryParseString(result, "Security");
-            //salesInfo.Action =  Enum.tTryParseString()
-            SalesAction action;
-            if(Enum.TryParse<SalesAction>(TryParseString(result, "Action"),out action))
-            {
-                salesInfo.Action = action;
-            }
+            salesInfo.Action = TryParseAction(result);
+            
             return salesInfo;
         }
 
@@ -50,14 +46,18 @@ namespace TradingBot.Models
             return resultReturn;
         }
 
-        public static string TryParseEnum(LuisResult result, string entity)
+        public static SalesAction? TryParseAction(LuisResult result)
         {
-            string resultReturn = null;
+            SalesAction? resultReturn = null;
             EntityRecommendation entityRecommendation;
-            if (result.TryFindEntity(entity, out entityRecommendation))
+            if (result.TryFindEntity("Buy", out entityRecommendation) || result.TryFindEntity("Sell", out entityRecommendation))
             {
-                var entiryFound = entityRecommendation.Entity;
-                resultReturn = entiryFound;
+                var entiryFound = entityRecommendation.Type;
+                SalesAction parsedSalesAction;
+                if(Enum.TryParse<SalesAction>(entiryFound.ToLowerInvariant(),out parsedSalesAction))
+                {
+                    resultReturn = parsedSalesAction;
+                }
             }
             return resultReturn;
         }
