@@ -13,7 +13,7 @@ namespace TradingBot.Controllers
     
     [Route("api/[controller]")]
     [BotAuthentication]
-    public class HotelController: Controller
+    public class TradingController: Controller
     {
        [HttpPost]
        async public Task<HttpResponseMessage> Post([FromBody]Activity message)

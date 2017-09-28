@@ -5,7 +5,7 @@ namespace TradingBot.Models
 {
 
    public enum SalesAction{
-        Buy,Sell
+        buy,sell
     }
 
     [Serializable]

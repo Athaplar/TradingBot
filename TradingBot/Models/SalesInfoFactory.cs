@@ -44,7 +44,7 @@ namespace TradingBot.Models
             EntityRecommendation entityRecommendation;
             if (result.TryFindEntity(entity, out entityRecommendation))
             {
-                var entiryFound = entityRecommendation.Entity;
+                var entiryFound = entityRecommendation.Entity.ToLowerInvariant();
                 resultReturn = entiryFound;
             }
             return resultReturn;
